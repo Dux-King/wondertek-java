@@ -1,9 +1,7 @@
 FROM alpine:3.4
-# Default to UTF-8 file.encoding
+# 默认文件编码 UTF-8
 ENV LANG C.UTF-8
 
-# add a simple script that can auto-detect the appropriate JAVA_HOME value
-# based on whether the JDK or only the JRE is installed
 RUN { \
     echo '#!/bin/sh'; \
     echo 'set -e'; \
@@ -19,5 +17,6 @@ ENV JAVA_ALPINE_VERSION 8.111.14-r0
 
 RUN set -x \
   && apk add --no-cache \
-    openjdk8="$JAVA_ALPINE_VERSION" \
-  && [ "$JAVA_HOME" = "$(docker-java-home)" ]
+    openjdk8="$JAVA_ALPINE_VERSION" libstdc++ curl ca-certificates bash tree tzdata \
+  && [ "$JAVA_HOME" = "$(docker-java-home)" ] \
+  && cp -r -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
