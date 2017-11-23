@@ -18,6 +18,6 @@ ENV JAVA_ALPINE_VERSION 7.121.2.6.8-r0
 
 RUN set -x \
   && apk add --no-cache \
-    openjdk8="$JAVA_ALPINE_VERSION" libstdc++ curl ca-certificates bash tree tzdata \
+    openjdk7="$JAVA_ALPINE_VERSION" libstdc++ curl ca-certificates bash tree tzdata \
   && [ "$JAVA_HOME" = "$(docker-java-home)" ] \
   && cp -r -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
