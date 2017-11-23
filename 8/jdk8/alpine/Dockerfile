@@ -1,4 +1,5 @@
 FROM alpine:3.4
+MAINTAINER wangdongxu <wangdongxu@wondertek.com.cn>
 # 默认文件编码 UTF-8
 ENV LANG C.UTF-8
 
