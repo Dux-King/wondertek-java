@@ -4,6 +4,6 @@ MAINTAINER wangdongxu <wangdongxu@wondertek.com.cn>
 ENV LANG C.UTF-8
 
 RUN set -x \
-  && apt-get \
+  && apt-get install \
     tzdata \
   && cp -r -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
